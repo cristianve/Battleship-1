@@ -15,26 +15,24 @@ public class ShipTest {
 	public void testGetName() {
 		Ship ship = new Ship();
 		ship.name = "Battleship";
-		String tName = "Battleship";
-		assertEquals(tName, ship.getName());
-	}
-	@Test
-	public void testSetName() {
-		Ship ship = new Ship();
-		String tName = "Crusier";
-		ship.setName(tName);
-		assertEquals(tName, ship.getName());
+		assertEquals("Battleship", ship.getName());
+		ship.name = "Crusier";
+		assertEquals("Crusier", ship.getName());
 	}
 	@Test
 	public void testGetSize() {
 		Ship ship = new Ship();
 		ship.size = 3;
 		assertEquals(3, ship.getSize());
+		ship.size = 10;
+		assertEquals(10, ship.getSize());
 	}
 	@Test
 	public void testGetType() {
 		Ship ship = new Ship();
 		ship.type = 'D';
 		assertEquals('D',ship.getType());
+		ship.type = 'Z';
+		assertEquals('Z', ship.getType());
 	}
 }
