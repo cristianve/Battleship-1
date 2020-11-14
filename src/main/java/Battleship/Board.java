@@ -37,5 +37,112 @@ public class Board {
 	public char getPlayerShips(int posX, int posY) { return (playerShips[posY][posX]); }
 	@Test
 	public char getCompShips(int posX, int posY) { return (compShips[posY][posX]); }
-}
 	
+	public void drawBoards()
+	{
+		int i,j;
+		char letterA = 'A';
+		//Board numbers
+		System.out.print("\t\tPlayer Board");
+		System.out.print("\t\t\t");
+		System.out.print("\t\t\t    Player Ships Status\n");
+		
+		for (j = 0; j < MAX_ROW_COL; j++) {
+			System.out.printf("   %d", j+1);}
+		System.out.print("\t\t\t");
+		
+		for (j = 0; j < MAX_ROW_COL; j++) {
+			System.out.printf("   %d", j+1);}
+		System.out.print("\n");
+		
+		//
+		for (i = 0; i < MAX_ROW_COL; i++) {
+			
+			System.out.print("  +");			// "+" cantonada inicial
+			for (j = 0; j < MAX_ROW_COL; j++) {
+				System.out.print("---+");		//segment horitzontal	
+			}
+			System.out.print("\t\t\t");
+			System.out.print("  +");			// "+" cantonada inicial
+			for (j = 0; j < MAX_ROW_COL; j++) {
+				System.out.print("---+");		//segment horitzontal	
+			}
+			
+			System.out.print("\n");
+			System.out.printf("%c |", letterA+i);	//Coordenades
+			for (j = 0; j < MAX_ROW_COL; j++) {
+				System.out.printf(" %c |", playerBoard[i][j]);		//lí­nies verticals
+			}
+			System.out.print("\t\t\t");
+			System.out.printf("%c |", letterA+i);	//Coordenades
+			for (j = 0; j < MAX_ROW_COL; j++) {
+				System.out.printf(" %c |", playerShips[i][j]);		//lí­nies verticals
+			}
+			System.out.print("\n");
+		}
+		System.out.print("  +");
+		for (j = 0; j < MAX_ROW_COL; j++) {
+			System.out.print("---+");
+		}
+		System.out.print("\t\t\t");
+		System.out.print("  +");
+		for (j = 0; j < MAX_ROW_COL; j++) {
+			System.out.print("---+");
+		}
+		System.out.print("\n");
+	}
+
+	public void drawPlayerShips()
+	{
+		int i,j;
+		char letterA = 'A';
+		System.out.print("\t\tPlayer Ships\n");
+		for (j = 0; j < MAX_ROW_COL; j++) {
+			System.out.printf("   %d", j+1);}
+		System.out.print("\n");
+		for (i = 0; i < MAX_ROW_COL; i++) {
+			System.out.print("  +");			// "+" cantonada inicial
+			for (j = 0; j < MAX_ROW_COL; j++) {
+				System.out.print("---+");		//segment horitzontal	
+			}
+			System.out.print("\n");
+			System.out.printf("%c |", letterA+i);	//Coordenades
+			for (j = 0; j < MAX_ROW_COL; j++) {
+				System.out.printf(" %c |", playerShips[i][j]);		//lí­nies verticals
+			}
+			System.out.print("\n");
+		}
+		System.out.print("  +");
+		for (j = 0; j < MAX_ROW_COL; j++) {
+			System.out.print("---+");
+		}
+		System.out.print("\n");
+	}
+
+	public void drawCompShips()
+	{
+		int i,j;
+		char letterA = 'A';
+		System.out.print("\t\tComputer Ships\n");
+		for (j = 0; j < MAX_ROW_COL; j++) {
+			System.out.printf("   %d", j+1);}
+		System.out.print("\n");
+		for (i = 0; i < MAX_ROW_COL; i++) {
+			System.out.print("  +");			// "+" cantonada inicial
+			for (j = 0; j < MAX_ROW_COL; j++) {
+				System.out.print("---+");		//segment horitzontal	
+			}
+			System.out.print("\n");
+			System.out.printf("%c |", letterA+i);	//Coordenades
+			for (j = 0; j < MAX_ROW_COL; j++) {
+				System.out.printf(" %c |", compShips[i][j]);		//lí­nies verticals
+			}
+			System.out.print("\n");
+		}
+		System.out.print("  +");
+		for (j = 0; j < MAX_ROW_COL; j++) {
+			System.out.print("---+");
+		}
+		System.out.print("\n");
+	}
+}
