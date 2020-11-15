@@ -27,13 +27,13 @@ public class Player extends Entity{
 		for(Ship ship : shipList)
 		{
 			boolean res = false;
-			//board.drawPlayerShips();
+			board.drawPlayerShips();
 			while(!res)
 			{
 				System.out.printf("\nCurrent ship type is %s, size is %d ",ship.getName(), ship.getSize());
 				System.out.println("\nPlacing the ship...");
-				//this.askCoords();
-				//this.askHorizontal();
+				this.askCoords();
+				this.askHorizontal();
 				
 				if(placeShip(ship, posX, posY, horizontal))
 				{
@@ -46,7 +46,7 @@ public class Player extends Entity{
 			board.updatePlayerShips(shipsLocation);
 			System.out.println("\nShip placed correctly");
 		}
-		//board.drawPlayerShips();
+		board.drawPlayerShips();
 	}
 	
 	@Test
@@ -56,7 +56,7 @@ public class Player extends Entity{
 		while(repeated)
 		{
 			System.out.println("\nAttacking a ship: ");
-			//askCoords();
+			askCoords();
 			if (board.getPlayer(posX, posY) == ' ')
 			{	
 				repeated = false;
