@@ -218,7 +218,7 @@ public class EntityTest {
 		String[] str2 = {"M","O","X","Z","n","y"};
 		for(int i=0;i<6;i++)
 		{
-			is = new ByteArrayInputStream( str1[i].getBytes() );
+			is = new ByteArrayInputStream( str2[i].getBytes() );
 			player.ScannerLineTester(is);
 			assertFalse(player.askHorizontal());
 		}

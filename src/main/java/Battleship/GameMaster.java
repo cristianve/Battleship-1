@@ -1,6 +1,8 @@
 package Battleship;
 import java.util.Scanner;
 
+import org.junit.Ignore;
+
 public class GameMaster {
 
 	private boolean gameOver = false;
@@ -10,6 +12,7 @@ public class GameMaster {
 	private Computer computer = new Computer();
 	public GameMaster() {}
 	
+	@Ignore
 	public static void wait(int seconds)
 	{
 		int ms = seconds*1000;
@@ -22,6 +25,7 @@ public class GameMaster {
 	        Thread.currentThread().interrupt();
 	    }
 	}
+	
 	public void printMainMenu() {
 		String input = "";
 		while(!input.equals("0"))

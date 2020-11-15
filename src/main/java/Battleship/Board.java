@@ -1,5 +1,6 @@
 package Battleship;
 
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class Board {
@@ -38,6 +39,7 @@ public class Board {
 	@Test
 	public char getCompShips(int posX, int posY) { return (compShips[posY][posX]); }
 	
+	@Ignore
 	public void drawBoards()
 	{
 		int i,j;
@@ -91,7 +93,8 @@ public class Board {
 		}
 		System.out.print("\n");
 	}
-
+	
+	@Ignore
 	public void drawPlayerShips()
 	{
 		int i,j;
@@ -119,6 +122,7 @@ public class Board {
 		System.out.print("\n");
 	}
 
+	@Ignore
 	public void drawCompShips()
 	{
 		int i,j;
