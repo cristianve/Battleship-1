@@ -167,6 +167,67 @@ public class EntityTest {
 
 	}
 	@Test
+	public void testAskHorizontal() {
+		//TDD
+		//TEST 1
+		String myString = "Y";
+		InputStream is = new ByteArrayInputStream( myString.getBytes() );
+		
+		Player player = new Player();
+		player.ScannerLineTester(is);
+		assertTrue(player.askHorizontal());
+		
+		//TEST 2
+		myString = "N";
+		is = new ByteArrayInputStream( myString.getBytes() );
+		
+		player.ScannerLineTester(is);
+		assertTrue(player.askHorizontal());
+		
+		//TEST 3
+		myString = "P";
+		is = new ByteArrayInputStream( myString.getBytes() );
+		
+		player.ScannerLineTester(is);
+		assertFalse(player.askHorizontal());
+		
+		//TEST Equivalent Partitions
+		//Valid values
+		player = new Player();
+		String[] str = {"Y","N"};
+		for(int i=0;i<2;i++)
+		{
+			is = new ByteArrayInputStream( str[i].getBytes() );
+			player.ScannerLineTester(is);
+			assertTrue(player.askHorizontal());
+		}
+		
+		//Invalid values
+		player = new Player();
+		String[] str1 = {"a"," ","+",".-,!","+","3", "s1-","A-"};
+		for(int i=0;i<7;i++)
+		{
+			is = new ByteArrayInputStream( str1[i].getBytes() );
+			player.ScannerLineTester(is);
+			assertFalse(player.askHorizontal());
+		}
+		
+		//TEST Boundary values Test
+		//Limit values
+		player = new Player();
+		String[] str2 = {"M","O","X","Z","n","y"};
+		for(int i=0;i<6;i++)
+		{
+			is = new ByteArrayInputStream( str1[i].getBytes() );
+			player.ScannerLineTester(is);
+			assertFalse(player.askHorizontal());
+		}
+		
+		//Boundary values
+		// Not needed because it was tested on the valid input tests.
+		
+	}
+	@Test
 	public void testHasWon() {
 		//TDD
 		Entity e = new Player();
