@@ -18,7 +18,6 @@ public class PlayerTest {
 	public void testSetShipsLocation() {
 		
 	}
-		
 	
 	@Test
 	public void testAttackShip() {
