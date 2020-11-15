@@ -94,8 +94,6 @@ public class Computer extends Entity{
 				System.out.println("\nMiss!");
 				board.updateComp(x, y, 'M');
 			}
-		} else {
-			System.out.println("\nYou already attacked these coordinates.");
 		}
 		
 	}

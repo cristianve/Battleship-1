@@ -99,7 +99,7 @@ public class EntityTest {
 	@Test
 	public void testAskCoords() {
 		
-		//TDD
+		/** TDD **/
 		//TEST 1
 		String myString = "A1";
 		InputStream is = new ByteArrayInputStream( myString.getBytes() );
@@ -116,7 +116,7 @@ public class EntityTest {
 		player.ScannerLineTester(is);
 		assertFalse(player.askCoords());
 		
-		//TEST Equivalent Partitions
+		/** TEST Equivalent Partitions **/
 		//Valid values
 		player = new Player();
 		String[] str = {"A1","C5","G8","J2"};
@@ -139,7 +139,8 @@ public class EntityTest {
 		player.ScannerLineTester(is);
 		assertTrue(player.askCoords());
 		
-		//TEST Boundary values Test
+		/** TEST Boundary values Test **/
+		
 		//Limit values
 		player = new Player();
 		String[] str2 = {"K1","A0","A11","J11","K11","A-1","J-2"};
@@ -164,11 +165,111 @@ public class EntityTest {
 			player.ScannerLineTester(is);
 			assertTrue(player.askCoords());
 		}
+		
+		/** Decision Coverage Test **/
 
+		//Test FALSE 1
+		String input = "A221";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertFalse(player.askCoords());
+		
+		//Test TRUE 1, FALSE 2
+		input = "AA";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertFalse(player.askCoords());
+		
+		//Test TRUE 1, TRUE 2, FALSE 3
+		input = "A0";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertFalse(player.askCoords());
+		
+		//Test TRUE 1, TRUE 2, TRUE 3
+		input = "A1";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertTrue(player.askCoords());
+		
+		/** Condition Coverage Test **/
+		
+		//Test FALSE 1
+		//input1 = false , input2 = false
+		input = "A221";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertFalse(player.askCoords());
+		
+		//Test TRUE 1, FALSE 2
+		//input1 = false , input2 = true, input3 = false
+		input = "AAA";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertFalse(player.askCoords());
+		
+		//Test TRUE 1, FALSE 2
+		//input1 = true , input2 = false, input3 = false
+		input = "AA";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertFalse(player.askCoords());
+		
+		//Test TRUE 1, TRUE 2, FALSE 3
+		//input1 = true , input2 = false, input3 = true, input4 = false, input5= true
+		input = "A0";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertFalse(player.askCoords());
+		
+		//Test TRUE 1, TRUE 2, FALSE 3
+		//input1 = true , input2 = false, input3 = true, input4 = true, input5= false
+		input = "P1";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertFalse(player.askCoords());
+		
+		//Test TRUE 1, TRUE 2, FALSE 3
+		//input1 = true , input2 = false, input3 = true, input4 = false, input5= false
+		input = "P0";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertFalse(player.askCoords());
+		
+		//Test TRUE 1, TRUE 2, TRUE 3
+		//input1 = true , input2 = false, input3 = true, input4 = false, input5= false
+		input = "B5";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertTrue(player.askCoords());
+		
 	}
 	@Test
 	public void testAskHorizontal() {
-		//TDD
+		
+		/** TDD **/
 		//TEST 1
 		String myString = "Y";
 		InputStream is = new ByteArrayInputStream( myString.getBytes() );
@@ -191,7 +292,7 @@ public class EntityTest {
 		player.ScannerLineTester(is);
 		assertFalse(player.askHorizontal());
 		
-		//TEST Equivalent Partitions
+		/** TEST Equivalent Partitions **/
 		//Valid values
 		player = new Player();
 		String[] str = {"Y","N"};
@@ -212,7 +313,7 @@ public class EntityTest {
 			assertFalse(player.askHorizontal());
 		}
 		
-		//TEST Boundary values Test
+		/** TEST Boundary values Test **/
 		//Limit values
 		player = new Player();
 		String[] str2 = {"M","O","X","Z","n","y"};
@@ -223,9 +324,91 @@ public class EntityTest {
 			assertFalse(player.askHorizontal());
 		}
 		
-		//Boundary values
+		/** Boundary values **/
 		// Not needed because it was tested on the valid input tests.
 		
+		/** Decision Coverage Test **/
+
+		//Test FALSE1
+		String input = "YY";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertFalse(player.askHorizontal());
+		
+		//Test TRUE1, FALSE2
+		input = "B";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertFalse(player.askHorizontal());
+		
+		//Test TRUE1, TRUE2, FALSE3
+		input = "N";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertTrue(player.askHorizontal());
+		
+		//Test TRUE1, TRUE2, TRUE3
+		input = "Y";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertTrue(player.askHorizontal());
+		
+		/** Condition Coverage Test **/
+		
+		//Test FALSE 1
+		//input1 = true , input2 = false
+		//Cannot be tested because the function ByteArrayInputStream can't accept empty strings.
+		/**
+		input = "";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertFalse(player.askHorizontal());
+		**/
+		
+		//input1 = false , input2 = false
+		input = "YYC";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertFalse(player.askHorizontal());
+		
+		//Test TRUE1, FALSE2
+		//input1 = false , input2 = true, input3 = false, input4 = false
+		input = "P";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertFalse(player.askHorizontal());
+		
+		//Test TRUE1, TRUE2, FALSE3
+		//input1 = false , input2 = true, input3 = false, input4 = true
+		input = "N";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertTrue(player.askHorizontal());
+		
+		//Test TRUE1, TRUE2, TRUE3
+		//input1 = false , input2 = true, input3 = true, input4 = false
+		input = "Y";
+		is = new ByteArrayInputStream( input.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertTrue(player.askHorizontal());
 	}
 	@Test
 	public void testHasWon() {

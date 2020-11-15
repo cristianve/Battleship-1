@@ -51,16 +51,17 @@ public abstract class Entity{
 		    letter = c;
 		    if(letter == 89 || letter == 78)
 		    {
+				if(letter == 89){
+					horizontal = true;
+				}else{
+					horizontal = false;
+				}
 		        isValid = true;
 		    }
 		    else { System.out.println("\nError: Type a correct option"); }
 		}else{ System.out.println("\nError: Type something"); }
 			
-		if(letter == 89){
-			horizontal = true;
-		}else if(letter == 78) {
-			horizontal = false;
-		}
+
 		return isValid;
 	}
 	@Test

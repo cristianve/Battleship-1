@@ -21,7 +21,7 @@ public class Player extends Entity{
 			shipList.add(new Destroyer());
 		}
 	}
-	@Test
+
 	public void setShipsLocation(Board board) {
 		
 		for(Ship ship : shipList)
