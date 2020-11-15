@@ -36,6 +36,7 @@ public abstract class Entity{
 	{
 		scan = new Scanner(in);
 	}
+	@Test
 	boolean askHorizontal()
 	{
 		int letter = 0;
@@ -44,7 +45,7 @@ public abstract class Entity{
 		
 		System.out.println("\nType Y or N for if you want to place it horizontal: ");
 		input = scan.nextLine();
-		if(!input.isEmpty())
+		if(!input.isEmpty() && input.length() == 1)
 		{
 		    char c = input.charAt(0);
 		    letter = c;
