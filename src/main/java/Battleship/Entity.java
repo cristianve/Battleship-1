@@ -62,55 +62,59 @@ public abstract class Entity{
 		boolean resultat = true;
 		char tipus = ship.getType();
 		int size = ship.getSize();
-		if(horizontal)
-		{	
-			if(posX+size <= MAX_ROW_COL)
-			{
-				for(int i=posX;i<(posX+size);i++)
+		if((posX >= 0 && posY >= 0) && (posX <= 9 && posY <= 9))
+		{
+			if(horizontal)
+			{	
+				if(posX+size <= MAX_ROW_COL)
 				{
-					if(shipsLocation[posY][i] != ' ')
+					for(int i=posX;i<(posX+size);i++)
 					{
-						resultat = false;
+						if(shipsLocation[posY][i] != ' ')
+						{
+							resultat = false;
+						}
 					}
-				}
-			}else
-			{
-				resultat = false;
-			}
-			if(resultat)
-			{
-				for(int i=posX;i<(posX+size);i++)
+				}else
 				{
-					shipsLocation[posY][i] = tipus;
+					resultat = false;
 				}
-				return true;
-			}
+				if(resultat)
+				{
+					for(int i=posX;i<(posX+size);i++)
+					{
+						shipsLocation[posY][i] = tipus;
+					}
+					return true;
+				}
 
-		}else {
-			if(posY+size <= MAX_ROW_COL)
-			{
-				for(int i=posY;i<(posY+size);i++)
+			}else {
+				if(posY+size <= MAX_ROW_COL)
 				{
-					if(shipsLocation[i][posX] != ' ')
+					for(int i=posY;i<(posY+size);i++)
 					{
-						resultat = false;
+						if(shipsLocation[i][posX] != ' ')
+						{
+							resultat = false;
+						}
 					}
-				}
-			}else
-			{
-				resultat = false;
-			}
-			if(resultat)
-			{
-				for(int i=posY;i<(posY+size);i++)
+				}else
 				{
-					shipsLocation[i][posX] = tipus;
+					resultat = false;
 				}
-				return true;
+				if(resultat)
+				{
+					for(int i=posY;i<(posY+size);i++)
+					{
+						shipsLocation[i][posX] = tipus;
+					}
+					return true;
+				}
 			}
 		}
 		return false;
 	}
+	@Test
 	public boolean askCoords(){
 		
 		boolean valid = false;
