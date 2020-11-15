@@ -1,5 +1,6 @@
 package Battleship;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -30,6 +31,10 @@ public abstract class Entity{
 				shipsLocation[i][j] = ' ';
 			}
 		}
+	}
+	public void ScannerLineTester(InputStream in)
+	{
+		scan = new Scanner(in);
 	}
 	boolean askHorizontal()
 	{

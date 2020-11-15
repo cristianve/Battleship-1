@@ -2,6 +2,9 @@ package Battleship;
 
 import static org.junit.Assert.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -96,31 +99,72 @@ public class EntityTest {
 	@Test
 	public void testAskCoords() {
 		
-		//TEST Equivalent Partition
+		//TDD
+		//TEST 1
+		String myString = "A1";
+		InputStream is = new ByteArrayInputStream( myString.getBytes() );
 		
-		/**
-		//Valid values
 		Player player = new Player();
-		int[] Xinputs = {0,5,2}; //1,6,3
-		int[] Yinputs = {0,4,1}; //A,E,B
-		for(int i=0;i<3;i++)
+		player.ScannerLineTester(is);
+		assertTrue(player.askCoords());
+		
+		//TEST 2
+		myString = "Z2";
+		is = new ByteArrayInputStream( myString.getBytes() );
+		
+		player = new Player();
+		player.ScannerLineTester(is);
+		assertFalse(player.askCoords());
+		
+		//TEST Equivalent Partitions
+		//Valid values
+		player = new Player();
+		String[] str = {"A1","C5","G8","J2"};
+		for(int i=0;i<4;i++)
 		{
+			is = new ByteArrayInputStream( str[i].getBytes() );
+			player.ScannerLineTester(is);
 			assertTrue(player.askCoords());
-			assertEquals(Xinputs[i], player.posX);
-			assertEquals(Yinputs[i], player.posY);
 		}
 		//Invalid values
 		player = new Player();
-		int[] Xinputs1 = {-1,0,-4,10000}; 
-		int[] Yinputs1 = {2,-3,-100,-10000};
+		String[] str1 = {"Z1"," ","00",".-,!","+", "1B", "1 C","A-3"};
+		for(int i=0;i<7;i++)
+		{
+			is = new ByteArrayInputStream( str1[i].getBytes() );
+			player.ScannerLineTester(is);
+			assertFalse(player.askCoords());
+		}
+		is = new ByteArrayInputStream( str1[7].getBytes() );
+		player.ScannerLineTester(is);
+		assertTrue(player.askCoords());
+		
+		//TEST Boundary values Test
+		//Limit values
+		player = new Player();
+		String[] str2 = {"K1","A0","A11","J11","K11","A-1","J-2"};
+		for(int i=0;i<5;i++)
+		{
+			is = new ByteArrayInputStream( str2[i].getBytes() );
+			player.ScannerLineTester(is);
+			assertFalse(player.askCoords());
+		}
+		for(int i=5;i<7;i++)
+		{
+			is = new ByteArrayInputStream( str2[i].getBytes() );
+			player.ScannerLineTester(is);
+			assertTrue(player.askCoords());
+		}
+		//Boundary values
+		player = new Player();
+		String[] str3 = {"A1","A10","J1","J10"};
 		for(int i=0;i<4;i++)
 		{
-			assertFalse(player.askCoords());
-			assertNotEquals(Xinputs1[i], player.posX);
-			assertNotEquals(Yinputs1[i], player.posY);
-			assertEquals(0, player.posX);
-			assertEquals(0, player.posY);
-		} **/
+			is = new ByteArrayInputStream( str3[i].getBytes() );
+			player.ScannerLineTester(is);
+			assertTrue(player.askCoords());
+		}
+
 	}
 	@Test
 	public void testHasWon() {
