@@ -31,32 +31,31 @@ public abstract class Entity{
 			}
 		}
 	}
-	public void askHorizontal()
+	boolean askHorizontal()
 	{
 		int letter = 0;
 		boolean isValid = false;
 		String input;
-		while(!isValid)
+		
+		System.out.println("\nType Y or N for if you want to place it horizontal: ");
+		input = scan.nextLine();
+		if(!input.isEmpty())
 		{
-			System.out.println("\nType Y or N for if you want to place it horizontal: ");
-			input = scan.nextLine();
-			if(!input.isEmpty())
-			{
-		        char c = input.charAt(0);
-		        letter = c;
-		        if(letter == 89 || letter == 78)
-		        {
-		        	isValid = true;
-		        }
-		        else { System.out.println("\nError: Type a correct option"); }
-			}else{ System.out.println("\nError: Type something"); }
+		    char c = input.charAt(0);
+		    letter = c;
+		    if(letter == 89 || letter == 78)
+		    {
+		        isValid = true;
+		    }
+		    else { System.out.println("\nError: Type a correct option"); }
+		}else{ System.out.println("\nError: Type something"); }
 			
-		}
 		if(letter == 89){
 			horizontal = true;
 		}else if(letter == 78) {
 			horizontal = false;
 		}
+		return isValid;
 	}
 	@Test
 	public boolean placeShip(Ship ship,int posX, int posY, boolean horizontal) {
@@ -112,31 +111,29 @@ public abstract class Entity{
 		}
 		return false;
 	}
-	public void askCoords(){
+	public boolean askCoords(){
 		
 		boolean valid = false;
 		String input;
-		while(!valid)
+
+		System.out.println("\nEnter the coordinates, the format is: [LETTER][NUMBER] ");
+		input = scan.nextLine();
+		if(input.length() == 2 || input.length() == 3)
 		{
-			
-			System.out.println("\nEnter the coordinates, the format is: [LETTER][NUMBER] ");
-			input = scan.nextLine();
-			if(input.length() == 2 || input.length() == 3)
+			char coordY = input.charAt(0);
+			String numberOnly = input.replaceAll("[^0-9]", "");
+			if(!numberOnly.isEmpty())
 			{
-				char coordY = input.charAt(0);
-				String numberOnly = input.replaceAll("[^0-9]", "");
-				if(!numberOnly.isEmpty())
-				{
-					int coordX =  Integer.parseInt(numberOnly);
-					int letter = coordY;
-					if((coordX >= 1 && coordX <= 10) && (coordY >= 'A' && coordY <= 'J')) {
-						posX = coordX - 1;
-						posY = letter - 65;
-						valid = true;
-					}else { System.out.println("\nPlease enter valid coordinates"); }
+				int coordX =  Integer.parseInt(numberOnly);
+				int letter = coordY;
+				if((coordX >= 1 && coordX <= 10) && (coordY >= 'A' && coordY <= 'J')) {
+					posX = coordX - 1;
+					posY = letter - 65;
+					valid = true;
 				}else { System.out.println("\nPlease enter valid coordinates"); }
 			}else { System.out.println("\nPlease enter valid coordinates"); }
-		}
+		}else { System.out.println("\nPlease enter valid coordinates"); }
+		return valid;
 	}
 	@Test
 	public boolean hasWon() {
