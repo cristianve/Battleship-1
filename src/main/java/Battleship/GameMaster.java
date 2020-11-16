@@ -59,7 +59,7 @@ public class GameMaster {
 		}
 		scan.close();
 	}
-	
+	@Test
 	public void Play() {
 		
 		player.iniciateShipsLocation();

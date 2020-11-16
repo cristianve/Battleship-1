@@ -2,6 +2,9 @@ package Battleship;
 
 import static org.junit.Assert.*;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,6 +22,8 @@ public class GameMasterTest {
 	 */
 	@Test
 	public void testWaitInt() {
+
+		//Calling the function for statement coverage testing
 		GameMaster gm = new GameMaster();
 		gm.wait(1);
 	}
@@ -28,6 +33,8 @@ public class GameMasterTest {
 	 */
 	@Test
 	public void testScannerLineTester() {
+		
+		//Calling the function for statement coverage testing
 		GameMaster gm = new GameMaster();
 
 		String myString = "Y";
@@ -40,6 +47,8 @@ public class GameMasterTest {
 	 */
 	@Test
 	public void testPrintMainMenu() {
+		
+		//Calling the function for statement coverage testing
 		GameMaster gm = new GameMaster();
 
 		String myString = "0";
