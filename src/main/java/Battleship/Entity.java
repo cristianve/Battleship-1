@@ -32,6 +32,8 @@ public abstract class Entity{
 			}
 		}
 	}
+	public void setMAX_ROW_COL(int maxRC) {MAX_ROW_COL = maxRC;}
+	public int getMAX_ROW_COL() { return MAX_ROW_COL; }
 	public void ScannerLineTester(InputStream in)
 	{
 		scan = new Scanner(in);

@@ -52,7 +52,7 @@ public class ComputerTest {
 
 		Board board = new Board();
 		board.updatePlayerShips(play.shipsLocation);
-		comp.populateMapList(board);
+		comp.populateMapList();
 		//TEST 1
 		int hitsFinal = ship.getSize();
 		for(int i=0;i<comp.MAX_ROW_COL * comp.MAX_ROW_COL;i++)

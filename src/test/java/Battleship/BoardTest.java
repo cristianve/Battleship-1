@@ -100,4 +100,23 @@ public class BoardTest {
 		testBoard.compShips[4][2] = 'w';
 		assertEquals('w', testBoard.getCompShips(2, 4));
 	}
+	@Test
+	public void testDrawBoards()
+	{
+		Board board = new Board();
+		board.drawBoards();
+	}
+	
+	@Test
+	public void testDrawCompShips()
+	{
+		Board board = new Board();
+		board.drawCompShips();
+	}
+	@Test
+	public void testDrawPlayerShips()
+	{
+		Board board = new Board();
+		board.drawPlayerShips();
+	}
 }

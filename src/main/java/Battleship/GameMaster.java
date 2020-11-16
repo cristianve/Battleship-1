@@ -1,7 +1,9 @@
 package Battleship;
+import java.io.InputStream;
 import java.util.Scanner;
 
 import org.junit.Ignore;
+import org.junit.Test;
 
 public class GameMaster {
 
@@ -25,8 +27,12 @@ public class GameMaster {
 	        Thread.currentThread().interrupt();
 	    }
 	}
-	
+	public void ScannerLineTester(InputStream in)
+	{
+		scan = new Scanner(in);
+	}
 	public void printMainMenu() {
+		
 		String input = "";
 		while(!input.equals("0"))
 		{
@@ -60,7 +66,7 @@ public class GameMaster {
 		player.setShipsLocation(board);
 		computer.updateCompShips(board);
 		board.drawCompShips();
-		computer.populateMapList(board);
+		computer.populateMapList();
 		while (!this.gameOver)
 		{
 			board.drawBoards();

@@ -56,7 +56,7 @@ public class Computer extends Entity{
 		board.updateCompShips(shipsLocation);
 	}
 	@Test
-	public void populateMapList(Board board)
+	public void populateMapList()
 	{
 		for (int i = 0; i < (MAX_ROW_COL * MAX_ROW_COL); i++)
 		{

@@ -21,7 +21,6 @@ public class Board {
 			}
 		}
 	}
-	
 	@Test 
 	public void updatePlayer(int posX, int posY, char status) { playerBoard[posY][posX] = status; }
 	@Test
@@ -39,7 +38,7 @@ public class Board {
 	@Test
 	public char getCompShips(int posX, int posY) { return (compShips[posY][posX]); }
 	
-	@Ignore
+	@Test
 	public void drawBoards()
 	{
 		int i,j;
@@ -94,7 +93,7 @@ public class Board {
 		System.out.print("\n");
 	}
 	
-	@Ignore
+	@Test
 	public void drawPlayerShips()
 	{
 		int i,j;
@@ -122,7 +121,7 @@ public class Board {
 		System.out.print("\n");
 	}
 
-	@Ignore
+	@Test
 	public void drawCompShips()
 	{
 		int i,j;
