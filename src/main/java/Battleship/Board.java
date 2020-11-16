@@ -3,6 +3,14 @@ package Battleship;
 import org.junit.Ignore;
 import org.junit.Test;
 
+/** The  Board  class  handles  the  Player  and  Computer
+ *   arrays  where  we  store  the 
+ *   information of the location of 
+ *   ships and attacks done. 
+ *   It has methods to print the information
+ * @author Roger
+ *
+ */
 public class Board {
 	protected int MAX_ROW_COL = 10;
 	protected char[][] playerBoard = new char[MAX_ROW_COL][MAX_ROW_COL];

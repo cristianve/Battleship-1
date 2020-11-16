@@ -7,6 +7,16 @@ import java.util.Scanner;
 
 import org.junit.Test;
 
+/**
+ * The  Entity  class  is  anabstract  class  that  
+ * handles  common  methods  for  Player and  Computer. 
+ *  It  can  ask  for  Coordinates,  ask  if  the  Ship  
+ *  will  be  placed  horizontally  or vertically. Check 
+ *  if the computer or player has won.
+ * @author Roger
+ *
+ */
+
 public abstract class Entity{
 	protected int MAX_ROW_COL = 10;
 	protected int MAX_BATTLESHIP = 1;

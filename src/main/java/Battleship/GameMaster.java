@@ -5,6 +5,18 @@ import java.util.Scanner;
 import org.junit.Ignore;
 import org.junit.Test;
 
+/**
+ * The GameMasterclass handles the game loop. 
+ * It initiates the game, starting the back and fort 
+ * between the player and the computer. First the player 
+ * places its ships, then the computer  randomly  places 
+ *  his.  Finally,  the  player  and  computer  take  
+ *  turns  attacking  each otheruntilall the ships of one 
+ *  entity have been hit and the game won
+ * @author Roger
+ *
+ */
+
 public class GameMaster {
 
 	private boolean gameOver = false;

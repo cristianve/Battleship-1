@@ -7,6 +7,16 @@ import java.util.Random;
 
 import org.junit.Test;
 
+/**
+ * The Computer  classis  an  extension  of  the  
+ * Abstract  Class  Entity,  ithandles  the interaction of 
+ * the simulated Computer AI with the game. 
+ * The Computer randomly places ships on his map and 
+ * attacks randomly at the player
+ * @author Roger
+ *
+ */
+
 public class Computer extends Entity{
 	
 	protected List<Integer> map = new ArrayList<Integer>();

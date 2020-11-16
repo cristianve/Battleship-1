@@ -2,6 +2,16 @@ package Battleship;
 
 import org.junit.Test;
 
+/**
+ * The  Player  class  is  an  extension  of  the  
+ * Abstract  Class  Entity,it  handles  the interaction of 
+ * the Player with the game. The player chooses where to
+ *  place its ships and then chooses where to attack the 
+ *  Computer.
+ * @author Roger
+ *
+ */
+
 public class Player extends Entity{
 	public Player() {
 		
