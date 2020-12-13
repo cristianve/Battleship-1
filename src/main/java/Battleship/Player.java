@@ -1,5 +1,7 @@
 package Battleship;
 
+import javax.swing.JTextArea;
+
 import org.junit.Test;
 
 /**
@@ -13,7 +15,15 @@ import org.junit.Test;
  */
 
 public class Player extends Entity{
-	public Player() {
+	
+	JTextArea display;
+	MockGUI mockGUIPlayer;
+	
+	
+	public Player(MockGUI mockGUI) {
+		
+		super(mockGUI);
+		mockGUIPlayer=mockGUI;
 		
 		this.iniciateShipsLocation();
 		
@@ -32,16 +42,22 @@ public class Player extends Entity{
 		}
 	}
 
-	public void setShipsLocation(Board board) {
+	public void setShipsLocation(Board board) throws InterruptedException {
 		
+
+
 		for(Ship ship : shipList)
 		{
 			boolean res = false;
 			board.drawPlayerShips();
 			while(!res)
 			{
-				System.out.printf("\nCurrent ship type is %s, size is %d ",ship.getName(), ship.getSize());
-				System.out.println("\nPlacing the ship...");
+				
+				display=mockGUIPlayer.getDisplay();
+				String aux= String.format("\nCurrent ship type is %s, size is %d ",ship.getName(), ship.getSize());
+				display.append(aux);
+				display.append("\nPlacing the ship...");
+	
 				
 				while(!askCoords()) {}
 				while(!askHorizontal()) {}
@@ -52,37 +68,44 @@ public class Player extends Entity{
 					res = true;
 					lifes += ship.getSize();
 				}else {
-					System.out.println("\nFailed to place the ship, try again");
+
+					display.append("\nFailed to place the ship, try again");
 				}
 			}
 			board.updatePlayerShips(shipsLocation);
-			System.out.println("\nShip placed correctly");
+			display.append("\nShip placed correctly");
 		}
+		display.setText("");
 		board.drawPlayerShips();
+		
 	}
 	
 	@Test
-	public void attackShip(Board board)
+	public void attackShip(Board board) throws InterruptedException
 	{
+	
+
 		boolean repeated = true;
 		while(repeated)
 		{
-			System.out.println("\nAttacking a ship: ");
+			display.append("\nAttacking a ship: ");
+	
 			while(!askCoords()) {}
 			if (board.getPlayer(posX, posY) == ' ')
 			{	
 				repeated = false;
 				if (board.getCompShips(posX, posY) != ' ')
 				{
-					System.out.println("\nHit!");
+					display.append("\nHit!");
 					board.updatePlayer(posX, posY, 'H');
 					hits+=1;
 				} else {
-					System.out.println("\nMiss!");
+					display.append("\nMiss!");
 					board.updatePlayer(posX, posY, 'M');
 				}
 			} else {
-				System.out.println("\nYou already attacked these coordinates.");
+
+				display.append("\nYou already attacked these coordinates.");
 			}
 		}
 

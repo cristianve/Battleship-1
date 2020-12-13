@@ -9,7 +9,7 @@ package Battleship;
  */
 
 public class Client {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		
 		GameMaster gm = new GameMaster();
 		gm.printMainMenu();

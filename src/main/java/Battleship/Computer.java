@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import javax.swing.JTextArea;
+
 import org.junit.Test;
 
 /**
@@ -21,7 +23,13 @@ public class Computer extends Entity{
 	
 	protected List<Integer> map = new ArrayList<Integer>();
 	
-	public Computer(){
+	JTextArea display;
+	MockGUI mockGUIComputer;
+	
+	public Computer(MockGUI mockGUI){
+		
+		mockGUIComputer = mockGUI;
+		display=mockGUIComputer.getDisplay();
 		
 		this.iniciateShipsLocation();
 		int i;
@@ -91,17 +99,19 @@ public class Computer extends Entity{
 				y = randomPos / 10;
 			}
 		}
-		
-		System.out.printf("\nComputer attacked coordinates %c%d\n", y+65, x+1);
+
+		String aux = String.format("\nComputer attacked coordinates %c%d\n", y+65, x+1);
+		display.append(aux);
 		if (board.getComp(x, y) == ' ')
 		{
 			if (board.getPlayerShips(x, y) != ' ')
 			{
-				System.out.println("\nHit!");
+	
+				display.append("\nHit!");
 				board.updateComp(x, y, 'H');
 				hits +=1;
 			} else {
-				System.out.println("\nMiss!");
+				display.append("\nMiss!");
 				board.updateComp(x, y, 'M');
 			}
 		}
