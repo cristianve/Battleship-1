@@ -103,21 +103,21 @@ public class GameMaster {
 			} else if (!gameOver) {
 				gameOver = true;
 				board.drawBoards();
-				wait(2);
+				wait(1);
 				display.append("\nGame Over: Computer won!\n\n\n");
-				wait(3);
+				wait(1);
 			}
 			if (!player.hasWon() && !gameOver) {
-				wait(2);
+			
 				computer.attackShip(board);
-				wait(2);
+			
 				display.setText("");
 			} else if (!gameOver) {
 				gameOver = true;
 				board.drawBoards();
-				wait(2);
+				wait(1);
 				display.append("\nGame Over: Player won!\n\n\n");
-				wait(3);
+				wait(1);
 			}
 		}
 		player = new Player(mockGUI);
