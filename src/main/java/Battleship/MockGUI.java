@@ -20,7 +20,7 @@ public class MockGUI extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	JTextArea display;
 	JTextArea display2;
 	JButton button1;
@@ -204,41 +204,48 @@ public class MockGUI extends JFrame {
 		buttonD.setBounds(1330, 430, 100, 50);
 		buttonD.setOpaque(true);
 		add(buttonD);
+
+		buttonE = new JButton("E");
+		buttonE.setBounds(1450, 430, 100, 50);
+		buttonE.setOpaque(true);
+		add(buttonE);
+
 		buttonF = new JButton("F");
-		buttonF.setBounds(1450, 430, 100, 50);
+		buttonF.setBounds(1570, 430, 100, 50);
 		buttonF.setOpaque(true);
 		add(buttonF);
 
 		buttonG = new JButton("G");
-		buttonG.setBounds(1570, 430, 100, 50);
+		buttonG.setBounds(1330, 500, 100, 50);
 		buttonG.setOpaque(true);
 		add(buttonG);
 
 		buttonH = new JButton("H");
-		buttonH.setBounds(1330, 500, 100, 50);
+		buttonH.setBounds(1450, 500, 100, 50);
 		buttonH.setOpaque(true);
 		add(buttonH);
 		buttonI = new JButton("I");
-		buttonI.setBounds(1450, 500, 100, 50);
+		buttonI.setBounds(1570, 500, 100, 50);
 		buttonI.setOpaque(true);
 		add(buttonI);
+
 		buttonJ = new JButton("J");
-		buttonJ.setBounds(1570, 500, 100, 50);
+		buttonJ.setBounds(1330, 570, 100, 50);
 		buttonJ.setOpaque(true);
 		add(buttonJ);
 
 		buttonY = new JButton("YES (Y)");
-		buttonY.setBounds(1330, 570, 160, 50);
+		buttonY.setBounds(1330, 640, 160, 50);
 		buttonY.setOpaque(true);
 		add(buttonY);
 
 		buttonN = new JButton("NO (N)");
-		buttonN.setBounds(1500, 570, 160, 50);
+		buttonN.setBounds(1500, 640, 160, 50);
 		buttonN.setOpaque(true);
 		add(buttonN);
 
 		enter = new JButton("Enter");
-		enter.setBounds(1330, 640, 340, 50);
+		enter.setBounds(1330, 710, 340, 50);
 		enter.setOpaque(true);
 		add(enter);
 	}
@@ -342,6 +349,14 @@ public class MockGUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				display2.setText(display2.getText() + "D");
+				isPressed = false;
+			}
+		});
+
+		buttonE.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				display2.setText(display2.getText() + "E");
 				isPressed = false;
 			}
 		});
